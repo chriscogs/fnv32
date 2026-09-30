@@ -1,6 +1,6 @@
 import unittest
 
-from fnv32 import fnv1a
+from fnv32 import fnv1a, fnv1a_hex
 
 
 class Fnv32Test(unittest.TestCase):
@@ -8,6 +8,8 @@ class Fnv32Test(unittest.TestCase):
         self.assertEqual(fnv1a(""), 2166136261)
         self.assertEqual(fnv1a("a"), fnv1a("a"))
         self.assertNotEqual(fnv1a("a"), fnv1a("b"))
+        self.assertEqual(fnv1a_hex("a"), f"{fnv1a('a'):08x}")
+        self.assertEqual(len(fnv1a_hex("a")), 8)
 
 
 if __name__ == "__main__":
