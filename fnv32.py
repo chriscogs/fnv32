@@ -12,3 +12,7 @@ def fnv1a(text: str) -> int:
         value ^= byte
         value = (value * _PRIME) & _MASK
     return value
+
+
+def fnv1a_hex(text: str) -> str:
+    return f"{fnv1a(text):08x}"
