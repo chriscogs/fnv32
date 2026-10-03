@@ -14,5 +14,9 @@ def fnv1a(text: str) -> int:
     return value
 
 
+def same_hash(left: str, right: str) -> bool:
+    return fnv1a(left) == fnv1a(right)
+
+
 def fnv1a_hex(text: str) -> str:
     return f"{fnv1a(text):08x}"
