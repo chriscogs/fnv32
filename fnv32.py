@@ -20,3 +20,9 @@ def same_hash(left: str, right: str) -> bool:
 
 def fnv1a_hex(text: str) -> str:
     return f"{fnv1a(text):08x}"
+
+
+def bucket(text: str, count: int) -> int:
+    if count < 1:
+        raise ValueError("桶数至少为 1")
+    return fnv1a(text) % count
