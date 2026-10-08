@@ -26,3 +26,7 @@ def bucket(text: str, count: int) -> int:
     if count < 1:
         raise ValueError("桶数至少为 1")
     return fnv1a(text) % count
+
+
+def same_bucket(left: str, right: str, count: int) -> bool:
+    return bucket(left, count) == bucket(right, count)
