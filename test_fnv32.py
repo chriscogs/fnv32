@@ -1,6 +1,6 @@
 import unittest
 
-from fnv32 import bucket, fnv1a, fnv1a_hex, same_hash
+from fnv32 import bucket, fnv1a, fnv1a_hex, same_bucket, same_hash
 
 
 class Fnv32Test(unittest.TestCase):
@@ -13,6 +13,7 @@ class Fnv32Test(unittest.TestCase):
         self.assertTrue(same_hash("a", "a"))
         self.assertFalse(same_hash("a", "b"))
         self.assertEqual(bucket("a", 1), 0)
+        self.assertTrue(same_bucket("a", "a", 8))
         self.assertGreaterEqual(bucket("a", 8), 0)
         self.assertLess(bucket("a", 8), 8)
         with self.assertRaises(ValueError):
