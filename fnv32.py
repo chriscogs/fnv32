@@ -30,3 +30,9 @@ def bucket(text: str, count: int) -> int:
 
 def same_bucket(left: str, right: str, count: int) -> bool:
     return bucket(left, count) == bucket(right, count)
+
+
+def prefix(text: str, n: int) -> str:
+    if n < 1 or n > 8:
+        raise ValueError("位数要在 1 到 8")
+    return fnv1a_hex(text)[:n]
