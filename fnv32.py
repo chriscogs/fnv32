@@ -42,3 +42,7 @@ def suffix(text: str, n: int) -> str:
     if n < 1 or n > 8:
         raise ValueError("位数要在 1 到 8")
     return fnv1a_hex(text)[-n:]
+
+
+def same_prefix(left: str, right: str, n: int) -> bool:
+    return prefix(left, n) == prefix(right, n)
