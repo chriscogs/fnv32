@@ -46,3 +46,7 @@ def suffix(text: str, n: int) -> str:
 
 def same_prefix(left: str, right: str, n: int) -> bool:
     return prefix(left, n) == prefix(right, n)
+
+
+def same_suffix(left: str, right: str, n: int) -> bool:
+    return suffix(left, n) == suffix(right, n)
