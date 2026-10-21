@@ -50,3 +50,12 @@ def same_prefix(left: str, right: str, n: int) -> bool:
 
 def same_suffix(left: str, right: str, n: int) -> bool:
     return suffix(left, n) == suffix(right, n)
+
+
+def shared_prefix(left: str, right: str) -> int:
+    count = 0
+    for one, two in zip(fnv1a_hex(left), fnv1a_hex(right)):
+        if one != two:
+            break
+        count += 1
+    return count
