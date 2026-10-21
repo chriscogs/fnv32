@@ -1,6 +1,6 @@
 import unittest
 
-from fnv32 import bucket, fnv1a, fnv1a_hex, prefix, same_bucket, same_hash, same_prefix, same_suffix, suffix
+from fnv32 import bucket, fnv1a, fnv1a_hex, prefix, same_bucket, same_hash, same_prefix, same_suffix, shared_prefix, suffix
 
 
 class Fnv32Test(unittest.TestCase):
@@ -25,6 +25,8 @@ class Fnv32Test(unittest.TestCase):
         self.assertFalse(same_prefix("a", "b", 8))
         self.assertTrue(same_suffix("a", "a", 8))
         self.assertFalse(same_suffix("a", "b", 8))
+        self.assertEqual(shared_prefix("a", "a"), 8)
+        self.assertLess(shared_prefix("a", "b"), 8)
 
 
 if __name__ == "__main__":
