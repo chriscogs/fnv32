@@ -59,3 +59,12 @@ def shared_prefix(left: str, right: str) -> int:
             break
         count += 1
     return count
+
+
+def shared_suffix(left: str, right: str) -> int:
+    count = 0
+    for one, two in zip(reversed(fnv1a_hex(left)), reversed(fnv1a_hex(right))):
+        if one != two:
+            break
+        count += 1
+    return count
