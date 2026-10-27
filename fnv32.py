@@ -68,3 +68,7 @@ def shared_suffix(left: str, right: str) -> int:
             break
         count += 1
     return count
+
+
+def shared_either(left: str, right: str) -> int:
+    return max(shared_prefix(left, right), shared_suffix(left, right))
