@@ -1,6 +1,6 @@
 import unittest
 
-from fnv32 import bucket, fnv1a, fnv1a_hex, prefix, same_bucket, same_hash, same_prefix, same_suffix, shared_either, shared_prefix, shared_suffix, suffix
+from fnv32 import bucket, fnv1a, fnv1a_hex, prefix, same_bucket, same_hash, same_prefix, same_suffix, shared_either, shared_prefix, shared_suffix, suffix, prefix_wins
 
 
 class Fnv32Test(unittest.TestCase):
@@ -32,6 +32,8 @@ class Fnv32Test(unittest.TestCase):
         self.assertEqual(shared_either("a", "a"), 8)
         self.assertLess(shared_either("a", "b"), 8)
 
+
+        self.assertFalse(prefix_wins("a", "a"))
 
 if __name__ == "__main__":
     unittest.main()
