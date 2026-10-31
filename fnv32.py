@@ -75,3 +75,6 @@ def shared_either(left: str, right: str) -> int:
 
 def prefix_wins(left: str, right: str) -> bool:
     return shared_prefix(left, right) > shared_suffix(left, right)
+
+def suffix_wins(left: str, right: str) -> bool:
+    return shared_suffix(left, right) > shared_prefix(left, right)
